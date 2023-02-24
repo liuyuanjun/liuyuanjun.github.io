@@ -6,9 +6,15 @@
 
 Hexo 文档 <https://hexo.io/zh-cn/docs/>
 
-## 部署：Vercel
+## 部署
+
+### Vercel
 
 网站：<https://vercel.com/>
+
+### github.io
+
+文档：<https://hexo.io/zh-cn/docs/one-command-deployment#Git>
 
 ## 主题：yilia
 

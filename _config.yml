@@ -103,6 +103,6 @@ theme: yilia
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: 'git'
-  repository: https://github.com/liuyuanjun/liuyuanjun.github.io.git
+  repository: git@github.com:liuyuanjun/liuyuanjun.github.io.git
   branch: gh-pages
 
