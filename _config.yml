@@ -102,4 +102,7 @@ theme: yilia
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: 'git'
+  repository: https://github.com/liuyuanjun/liuyuanjun.github.io.git
+  branch: gh-pages
+
