@@ -104,7 +104,8 @@ deploy:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-
+#RSS订阅
+plugins: hexo-generater-feed
 feed:
     type: atom
     path: atom.xml
