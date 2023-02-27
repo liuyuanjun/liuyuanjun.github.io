@@ -5,13 +5,11 @@ tags: ['github','ssh']
 ---
 **Github 报错如下:**
 
-> ssh_dispatch_run_fatal: Connection to 20.205.243.166 port 22: Operation timed out
+> kex_exchange_identification: Connection closed by remote host
 > fatal: Could not read from remote repository.
 > 
 > Please make sure you have the correct access rights
 > and the repository exists.
-
-
 
 **解决方法如下：**
 
