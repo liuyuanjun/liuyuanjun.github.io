@@ -20,7 +20,7 @@ subnav:
   #mail: "mailto:litten225@qq.com"
   #facebook: "#"
   #google: "#"
-  #twitter: "#"
+  twitter: "https://twitter.com/liuyuanjun"
   #linkedin: "#"
 
 rss: /atom.xml
