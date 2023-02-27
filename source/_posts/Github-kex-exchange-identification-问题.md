@@ -7,7 +7,7 @@ tags: ['github','ssh']
 
 > kex_exchange_identification: Connection closed by remote host
 > fatal: Could not read from remote repository.
-> 
+>
 > Please make sure you have the correct access rights
 > and the repository exists.
 
@@ -15,12 +15,12 @@ tags: ['github','ssh']
 
 编辑 `~/.ssh/config` 文件
 
-```
+```config
 Host github.com
  Hostname ssh.github.com
  Port 443
 ```
 
-**参考文档**
+**参考文档：**
 
 > https://stackoverflow.com/a/60994276
