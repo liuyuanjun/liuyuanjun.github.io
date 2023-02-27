@@ -6,7 +6,7 @@
   <link href="https://liuyuanjun.com/atom.xml" rel="self"/>
   
   <link href="https://liuyuanjun.com/"/>
-  <updated>2023-02-27T09:49:38.261Z</updated>
+  <updated>2023-02-27T10:55:24.133Z</updated>
   <id>https://liuyuanjun.com/</id>
   
   <author>
@@ -21,16 +21,16 @@
     <link href="https://liuyuanjun.com/2023/02/27/Github-kex-exchange-identification-%E9%97%AE%E9%A2%98/"/>
     <id>https://liuyuanjun.com/2023/02/27/Github-kex-exchange-identification-%E9%97%AE%E9%A2%98/</id>
     <published>2023-02-27T07:54:30.000Z</published>
-    <updated>2023-02-27T09:49:38.261Z</updated>
+    <updated>2023-02-27T10:55:24.133Z</updated>
     
-    <content type="html"><![CDATA[<p><strong>Github 报错如下:</strong></p><blockquote><p>ssh_dispatch_run_fatal: Connection to 20.205.243.166 port 22: Operation timed out<br>fatal: Could not read from remote repository.</p><p>Please make sure you have the correct access rights<br>and the repository exists.</p></blockquote><p><strong>解决方法如下：</strong></p><p>编辑 <code>~/.ssh/config</code> 文件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line"> Hostname ssh.github.com</span><br><span class="line"> Port 443</span><br></pre></td></tr></table></figure><p><strong>参考文档</strong></p><blockquote><p><a href="https://stackoverflow.com/a/60994276">https://stackoverflow.com/a/60994276</a></p></blockquote>]]></content>
+    <content type="html"><![CDATA[<p><strong>Github 报错如下:</strong></p><blockquote><p>kex_exchange_identification: Connection closed by remote host<br>fatal: Could not read from remote repository.</p><p>Please make sure you have the correct access rights<br>and the repository exists.</p></blockquote><p><strong>解决方法如下：</strong></p><p>编辑 <code>~/.ssh/config</code> 文件</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Host github.com</span><br><span class="line"> Hostname ssh.github.com</span><br><span class="line"> Port 443</span><br></pre></td></tr></table></figure><p><strong>参考文档：</strong></p><blockquote><p><a href="https://stackoverflow.com/a/60994276">https://stackoverflow.com/a/60994276</a></p></blockquote>]]></content>
     
     
       
       
     <summary type="html">&lt;p&gt;&lt;strong&gt;Github 报错如下:&lt;/strong&gt;&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;ssh_dispatch_run_fatal: Connection to 20.205.243.166 port 22: Operation timed out&lt;br&gt;fa</summary>
+&lt;p&gt;kex_exchange_identification: Connection closed by remote host&lt;br&gt;fatal: Could not read </summary>
       
     
     
@@ -69,7 +69,7 @@
     <link href="https://liuyuanjun.com/hello-world/"/>
     <id>https://liuyuanjun.com/hello-world/</id>
     <published>2023-02-24T11:11:35.000Z</published>
-    <updated>2023-02-27T09:47:19.136Z</updated>
+    <updated>2023-02-27T10:55:24.133Z</updated>
     
     <content type="html"><![CDATA[<p>年龄渐长，记忆衰退</p><p>构建了一个Blog，记一些东西备忘</p><p>希望我记的东西恰好也能帮到你</p><p>博客构建使用<a href="https://hexo.io/">Hexo</a>，部署于<a href="https://vercel.com/liuyuanjun">Vercel</a>，同时部署于<a href="https://liuyuanjun.github.io/">Github.io</a>备用</p>]]></content>
     
