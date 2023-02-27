@@ -181,6 +181,14 @@
 <blockquote>
 <p><a target="_blank" rel="noopener" href="https://stackoverflow.com/a/60994276">https://stackoverflow.com/a/60994276</a></p>
 </blockquote>
+<hr>
+<p>后面频繁出现 time out，解决方法，加代理</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 必须是 github.com</span></span><br><span class="line">Host github.com</span><br><span class="line">   HostName github.com</span><br><span class="line">   User git</span><br><span class="line">   <span class="comment"># 走 HTTP 代理</span></span><br><span class="line">   <span class="comment"># ProxyCommand socat - PROXY:127.0.0.1:%h:%p,proxyport=8080</span></span><br><span class="line">   <span class="comment"># 走 socks5 代理（如小飞机 or V2xxx）</span></span><br><span class="line">   ProxyCommand nc -v -x 127.0.0.1:1080 %h %p</span><br></pre></td></tr></table></figure>
+
+<p><strong>参考文档：</strong></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/HD243608836/article/details/127869482">https://blog.csdn.net/HD243608836/article/details/127869482</a></p>
+</blockquote>
 
       
 
