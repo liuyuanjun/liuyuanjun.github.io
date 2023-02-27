@@ -8,7 +8,6 @@ menu:
 subnav:
   github: "https://github.com/liuyuanjun"
   #weibo: "#"
-  rss: "/atom.xml"
   #zhihu: "#"
   #qq: "#"
   #weixin: "#"
@@ -22,6 +21,7 @@ subnav:
   #google: "#"
   twitter: "https://twitter.com/liuyuanjun"
   #linkedin: "#"
+  rss: "/atom.xml"
 
 rss: /atom.xml
 
