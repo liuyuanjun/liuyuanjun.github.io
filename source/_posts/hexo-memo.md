@@ -2,6 +2,7 @@
 title: Hexo使用备忘
 date: 2023-02-27 15:51:19
 updated: 2023-02-27 15:51:19
+permalink: '/hexo-memo/'
 tags: ['Hexo']
 ---
 ### 去除yilia主题中失效的统计访问
