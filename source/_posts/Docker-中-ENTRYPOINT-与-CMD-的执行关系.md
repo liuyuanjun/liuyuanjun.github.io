@@ -38,7 +38,7 @@ foo 1 bar
 
 运行镜像显示使用了：printf
 
-### 在运行时覆写 （--entrypoint)
+### 在运行时覆写 （`--entrypoint`)
 
 ```sh
 docker run --entrypoint="echo" overridden
