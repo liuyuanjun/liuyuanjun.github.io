@@ -16,7 +16,7 @@
 <meta property="og:description" content="ENTRYPOINT 与 CMD 如何配合使用    No ENTRYPOINT ENTRYPOINT exec_entry p1_entry ENTRYPOINT [“exec_entry”, “p1_entry”]    No CMD error, not allowed &#x2F;bin&#x2F;sh -c exec_entry p1_entry exec_entry p1_entry">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-28T11:51:36.000Z">
-<meta property="article:modified_time" content="2023-02-28T12:33:43.341Z">
+<meta property="article:modified_time" content="2023-02-28T12:34:54.476Z">
 <meta property="article:author" content="YJ Liu">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
@@ -206,7 +206,7 @@
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 运行</span></span><br><span class="line">docker run overridden</span><br><span class="line">foo 1 bar</span><br></pre></td></tr></table></figure>
 
 <p>运行镜像显示使用了：printf</p>
-<h3 id="在运行时覆写-（–entrypoint"><a href="#在运行时覆写-（–entrypoint" class="headerlink" title="在运行时覆写 （–entrypoint)"></a>在运行时覆写 （–entrypoint)</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --entrypoint=<span class="string">&quot;echo&quot;</span> overridden</span><br><span class="line"><span class="comment"># 没有输出 (CMD已被重置)</span></span><br></pre></td></tr></table></figure>
+<h3 id="在运行时覆写-（-entrypoint"><a href="#在运行时覆写-（-entrypoint" class="headerlink" title="在运行时覆写 （--entrypoint)"></a>在运行时覆写 （<code>--entrypoint</code>)</h3><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --entrypoint=<span class="string">&quot;echo&quot;</span> overridden</span><br><span class="line"><span class="comment"># 没有输出 (CMD已被重置)</span></span><br></pre></td></tr></table></figure>
 
 <p>可以通过传参来设置新的CMD：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --entrypoint=<span class="string">&quot;echo&quot;</span> overridden thisisthenewcommand</span><br><span class="line">thisisthenewcommand</span><br></pre></td></tr></table></figure>
