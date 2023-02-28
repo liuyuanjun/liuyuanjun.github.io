@@ -51,7 +51,7 @@ docker run --entrypoint="echo" overridden
 docker run --entrypoint="echo" overridden thisisthenewcommand
 thisisthenewcommand
 ```
-
+<!-- more -->
 ### 在子镜像覆写 （FROM ..)
 
 构建扩展新镜像时，将重置：CMD
