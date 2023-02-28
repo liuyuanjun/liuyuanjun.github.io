@@ -207,26 +207,9 @@
 
 <p>可以通过传参来设置新的CMD：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --entrypoint=<span class="string">&quot;echo&quot;</span> overridden thisisthenewcommand</span><br><span class="line">thisisthenewcommand</span><br></pre></td></tr></table></figure>
-
-<h3 id="在子镜像覆写-（FROM"><a href="#在子镜像覆写-（FROM" class="headerlink" title="在子镜像覆写 （FROM ..)"></a>在子镜像覆写 （FROM ..)</h3><p>构建扩展新镜像时，将重置：CMD</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> overridden</span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="string">&quot;echo&quot;</span>]</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --no-cache -t overridden2 .</span><br></pre></td></tr></table></figure>
-
-<p>运行显示 已重置CMD</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run overridden2</span><br><span class="line"><span class="comment"># empty output (because CMD is reset)</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="在多阶段构建中覆盖"><a href="#在多阶段构建中覆盖" class="headerlink" title="在多阶段构建中覆盖"></a>在多阶段构建中覆盖</h3><p>在多阶段构建中，情况与构建扩展镜像时情况相同（只是在单个 Dockerfile 中完成）;</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> busybox AS stage1</span><br><span class="line"></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;foo %d bar\n&quot;</span>, <span class="string">&quot;1&quot;</span>]</span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="string">&quot;echo&quot;</span>]</span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="string">&quot;printf&quot;</span>]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">FROM</span> stage1</span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="string">&quot;echo&quot;</span>]</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker build --no-cache -t overridden3 .</span><br></pre></td></tr></table></figure>
-
-<p>运行镜像显示已使用，但已重置：<code>echo cmd</code></p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run overridden3</span><br><span class="line"><span class="comment"># empty output (because CMD is reset)</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<p><strong>参考资料：</strong><br><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/builder/#understand-how-cmd-and-entrypoint-interact">https://docs.docker.com/engine/reference/builder/#understand-how-cmd-and-entrypoint-interact</a><br><a target="_blank" rel="noopener" href="https://github.com/docker/docs/issues/6142#issuecomment-370368332">https://github.com/docker/docs/issues/6142#issuecomment-370368332</a></p>
-
+        
+          <a class="article-more-a" href="/docker-entrypoint-cmd/#more">more >></a>
+        
       
 
       
