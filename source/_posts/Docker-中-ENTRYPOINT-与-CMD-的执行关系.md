@@ -1,6 +1,7 @@
 ---
 title: Docker 中 ENTRYPOINT 与 CMD 的执行关系
 date: 2023-02-28 19:51:36
+updated: 2023-03-01 09:34:11
 permalink: '/docker-entrypoint-cmd/'
 tags: ['docker']
 ---
@@ -12,6 +13,10 @@ tags: ['docker']
 | No CMD                     | error, not allowed         | /bin/sh -c exec_entry p1_entry | exec_entry p1_entry                            |
 | CMD [“exec_cmd”, “p1_cmd”] | exec_cmd p1_cmd            | /bin/sh -c exec_entry p1_entry | exec_entry p1_entry exec_cmd p1_cmd            |
 | CMD exec_cmd p1_cmd        | /bin/sh -c exec_cmd p1_cmd | /bin/sh -c exec_entry p1_entry | exec_entry p1_entry /bin/sh -c exec_cmd p1_cmd |
+
+**一句话抓重点：** 如果entry设置没有使用数组方式，CMD不会被执行
+
+---
 
 ## ENTRYPOINT 与 CMD 的各种覆写情况
 
