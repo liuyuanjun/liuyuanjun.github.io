@@ -196,6 +196,8 @@
 <td>exec_entry p1_entry &#x2F;bin&#x2F;sh -c exec_cmd p1_cmd</td>
 </tr>
 </tbody></table>
+<p><strong>一句话抓重点：</strong> 如果entry设置没有使用数组方式，CMD不会被执行</p>
+<hr>
 <h2 id="ENTRYPOINT-与-CMD-的各种覆写情况"><a href="#ENTRYPOINT-与-CMD-的各种覆写情况" class="headerlink" title="ENTRYPOINT 与 CMD 的各种覆写情况"></a>ENTRYPOINT 与 CMD 的各种覆写情况</h2><h3 id="在同一-buildstage-覆写时"><a href="#在同一-buildstage-覆写时" class="headerlink" title="在同一 buildstage 覆写时"></a>在同一 buildstage 覆写时</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> busybox</span><br><span class="line"></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;foo %d bar\n&quot;</span>, <span class="string">&quot;1&quot;</span>] <span class="comment"># 被保留</span></span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="string">&quot;echo&quot;</span>] <span class="comment"># 被覆盖</span></span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="string">&quot;printf&quot;</span>] <span class="comment"># 被保留</span></span></span><br></pre></td></tr></table></figure>
 
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 构建</span></span><br><span class="line">docker build --no-cache -t overridden .</span><br></pre></td></tr></table></figure>
