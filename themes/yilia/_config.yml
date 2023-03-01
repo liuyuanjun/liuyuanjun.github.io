@@ -1,6 +1,9 @@
 # Header
+# 作者
 author: 'YJ.Liu'
+# 子标题
 subtitle: '个人博客'
+
 menu:
   主页: /
   随笔: /tags/随笔/

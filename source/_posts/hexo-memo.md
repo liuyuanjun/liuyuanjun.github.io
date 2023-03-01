@@ -5,12 +5,12 @@ updated: 2023-02-27 15:51:19
 permalink: '/hexo-memo/'
 tags: ['Hexo']
 ---
-### 去除yilia主题中失效的统计访问
+## 去除yilia主题中失效的统计访问
 
 使用yilia主题打开网站会有个 `https://litten.me:9005/badjs/?id=1&uin=xxxxxx` 的访问一直转圈，主题作者最后维护已经是N年前，这个统计链接也早已失效
 查找了一下，代码在`/themes/yilia/source-src/js/report.js`，但这里是源码，实际使用的是编译后的文件，所以更改这里并不能解决问题
 
-#### 解决方法
+### 解决方法
 
 查找
 
@@ -22,4 +22,20 @@ tags: ['Hexo']
 
 ```javascript
 192:function(e,t,n){},
+```
+
+---
+---
+
+## 左侧作者名字（author）和 子标题（subtitle）的显示
+
+![author-subtitle.png](/assets/img/article/author_subtitle.png)
+
+这个配置文件中没有介绍到，很简单，在 `themes/yilia/_config.yml` 中加入一下两项即可：
+
+```yml
+# 作者
+author: 'YJ.Liu'
+# 子标题
+subtitle: '个人博客'
 ```
