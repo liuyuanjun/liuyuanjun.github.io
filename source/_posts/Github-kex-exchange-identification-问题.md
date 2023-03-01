@@ -2,6 +2,7 @@
 title: Github kex_exchange_identification 问题
 date: 2023-02-27 15:54:30
 updated: 2023-02-27 19:20:44
+permalink: '/github-connect-error-kex_exchange_identification-time_out/'
 tags: ['github','ssh']
 ---
 **Github 报错如下:**
