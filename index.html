@@ -46,8 +46,10 @@
 			<img src="/assets/img/avatar.png" class="js-avatar">
 		</a>
 		<hgroup>
-		  <h1 class="header-author"><a href="/"></a></h1>
+		  <h1 class="header-author"><a href="/">YJ.Liu</a></h1>
 		</hgroup>
+		
+		<p class="header-subtitle">个人博客</p>
 		
 
 		<nav class="header-menu">
@@ -102,8 +104,10 @@
 				<img src="/assets/img/avatar.png" class="js-avatar">
 			</div>
 			<hgroup>
-			  <h1 class="header-author js-header-author"></h1>
+			  <h1 class="header-author js-header-author">YJ.Liu</h1>
 			</hgroup>
+			
+			<p class="header-subtitle"><i class="icon icon-quo-left"></i>个人博客<i class="icon icon-quo-right"></i></p>
 			
 			
 			
@@ -155,12 +159,12 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/docker-entrypoint-cmd/">Docker 中 ENTRYPOINT 与 CMD 的执行关系</a>
+      <a class="article-title" href="/docker-how-to-use-entrypoint-cmd/">Docker 中 ENTRYPOINT 与 CMD 的执行关系</a>
     </h1>
   
 
         
-        <a href="/docker-entrypoint-cmd/" class="archive-article-date">
+        <a href="/docker-how-to-use-entrypoint-cmd/" class="archive-article-date">
   	<time datetime="2023-02-28T11:51:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-28</time>
 </a>
         
@@ -196,7 +200,8 @@
 <td>exec_entry p1_entry &#x2F;bin&#x2F;sh -c exec_cmd p1_cmd</td>
 </tr>
 </tbody></table>
-<p><strong>一句话抓重点：</strong> 如果entry设置没有使用数组方式，CMD不会被执行</p>
+<p><strong>一句话抓重点：</strong> 如果 ENTRYPOINT 设置没有使用数组方式，CMD不会被执行</p>
+<hr>
 <hr>
 <h2 id="ENTRYPOINT-与-CMD-的各种覆写情况"><a href="#ENTRYPOINT-与-CMD-的各种覆写情况" class="headerlink" title="ENTRYPOINT 与 CMD 的各种覆写情况"></a>ENTRYPOINT 与 CMD 的各种覆写情况</h2><h3 id="在同一-buildstage-覆写时"><a href="#在同一-buildstage-覆写时" class="headerlink" title="在同一 buildstage 覆写时"></a>在同一 buildstage 覆写时</h3><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">FROM</span> busybox</span><br><span class="line"></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;foo %d bar\n&quot;</span>, <span class="string">&quot;1&quot;</span>] <span class="comment"># 被保留</span></span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="string">&quot;echo&quot;</span>] <span class="comment"># 被覆盖</span></span></span><br><span class="line"><span class="keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="string">&quot;printf&quot;</span>] <span class="comment"># 被保留</span></span></span><br></pre></td></tr></table></figure>
 
@@ -210,7 +215,7 @@
 <p>可以通过传参来设置新的CMD：</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker run --entrypoint=<span class="string">&quot;echo&quot;</span> overridden thisisthenewcommand</span><br><span class="line">thisisthenewcommand</span><br></pre></td></tr></table></figure>
         
-          <a class="article-more-a" href="/docker-entrypoint-cmd/#more">more >></a>
+          <a class="article-more-a" href="/docker-how-to-use-entrypoint-cmd/#more">more >></a>
         
       
 
@@ -234,7 +239,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/docker-entrypoint-cmd/">展开全文 >></a>
+          <a class="article-more-a" href="/docker-how-to-use-entrypoint-cmd/">展开全文 >></a>
         </p>
       
 
@@ -271,12 +276,12 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/27/Github-kex-exchange-identification-%E9%97%AE%E9%A2%98/">Github kex_exchange_identification 问题</a>
+      <a class="article-title" href="/github-connect-error-kex_exchange_identification-time_out/">Github kex_exchange_identification 问题</a>
     </h1>
   
 
         
-        <a href="/2023/02/27/Github-kex-exchange-identification-%E9%97%AE%E9%A2%98/" class="archive-article-date">
+        <a href="/github-connect-error-kex_exchange_identification-time_out/" class="archive-article-date">
   	<time datetime="2023-02-27T07:54:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-27</time>
 </a>
         
@@ -332,7 +337,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2023/02/27/Github-kex-exchange-identification-%E9%97%AE%E9%A2%98/">展开全文 >></a>
+          <a class="article-more-a" href="/github-connect-error-kex_exchange_identification-time_out/">展开全文 >></a>
         </p>
       
 
