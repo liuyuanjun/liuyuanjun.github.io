@@ -15,11 +15,13 @@
 <meta property="og:site_name" content="YJ&#39;s Blog">
 <meta property="og:description" content="去除yilia主题中失效的统计访问使用yilia主题打开网站会有个 https:&#x2F;&#x2F;litten.me:9005&#x2F;badjs&#x2F;?id&#x3D;1&amp;uin&#x3D;xxxxxx 的访问一直转圈，主题作者最后维护已经是N年前，这个统计链接也早已失效查找了一下，代码在&#x2F;themes&#x2F;yilia&#x2F;source-src&#x2F;js&#x2F;report.js，但这里是源码，实际使用的是编译后的文件，所以更改这里并不能解决问题 解">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://liuyuanjun.com/assets/img/article/author_subtitle.png">
 <meta property="article:published_time" content="2023-02-27T07:51:19.000Z">
 <meta property="article:modified_time" content="2023-02-27T07:51:19.000Z">
 <meta property="article:author" content="YJ Liu">
 <meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://liuyuanjun.com/assets/img/article/author_subtitle.png">
   
     <link rel="alternative" href="/atom.xml" title="YJ&#39;s Blog" type="application/atom+xml">
   
@@ -175,12 +177,18 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="去除yilia主题中失效的统计访问"><a href="#去除yilia主题中失效的统计访问" class="headerlink" title="去除yilia主题中失效的统计访问"></a>去除yilia主题中失效的统计访问</h3><p>使用yilia主题打开网站会有个 <code>https://litten.me:9005/badjs/?id=1&amp;uin=xxxxxx</code> 的访问一直转圈，主题作者最后维护已经是N年前，这个统计链接也早已失效<br>查找了一下，代码在<code>/themes/yilia/source-src/js/report.js</code>，但这里是源码，实际使用的是编译后的文件，所以更改这里并不能解决问题</p>
-<h4 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h4><p>查找</p>
+        <h2 id="去除yilia主题中失效的统计访问"><a href="#去除yilia主题中失效的统计访问" class="headerlink" title="去除yilia主题中失效的统计访问"></a>去除yilia主题中失效的统计访问</h2><p>使用yilia主题打开网站会有个 <code>https://litten.me:9005/badjs/?id=1&amp;uin=xxxxxx</code> 的访问一直转圈，主题作者最后维护已经是N年前，这个统计链接也早已失效<br>查找了一下，代码在<code>/themes/yilia/source-src/js/report.js</code>，但这里是源码，实际使用的是编译后的文件，所以更改这里并不能解决问题</p>
+<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>查找</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">192</span>:<span class="keyword">function</span>(<span class="params">e,t,n</span>)&#123;<span class="string">&quot;use strict&quot;</span>;<span class="keyword">function</span> <span class="title function_">o</span>(<span class="params">e</span>)&#123;<span class="keyword">var</span> t=<span class="keyword">new</span> <span class="title class_">RegExp</span>(<span class="string">&quot;(^|&amp;)&quot;</span>+e+<span class="string">&quot;=([^&amp;]*)(&amp;|$)&quot;</span>,<span class="string">&quot;i&quot;</span>),n=<span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">search</span>.<span class="title function_">substr</span>(<span class="number">1</span>).<span class="title function_">match</span>(t);<span class="keyword">return</span> <span class="literal">null</span>!=n?<span class="built_in">unescape</span>(n[<span class="number">2</span>]):<span class="literal">null</span>&#125;<span class="keyword">var</span> r=<span class="title function_">n</span>(<span class="number">388</span>);<span class="keyword">if</span>(<span class="title function_">n</span>(<span class="number">197</span>),<span class="variable language_">window</span>.<span class="property">BJ_REPORT</span>)&#123;<span class="variable constant_">BJ_REPORT</span>.<span class="title function_">init</span>(&#123;<span class="attr">id</span>:<span class="number">1</span>&#125;),<span class="variable constant_">BJ_REPORT</span>.<span class="title function_">init</span>(&#123;<span class="attr">id</span>:<span class="number">1</span>,<span class="attr">uin</span>:<span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">origin</span>,<span class="attr">combo</span>:<span class="number">0</span>,<span class="attr">delay</span>:<span class="number">1e3</span>,<span class="attr">url</span>:<span class="string">&quot;//litten.me:9005/badjs/&quot;</span>,<span class="attr">ignore</span>:[<span class="regexp">/Script error/i</span>],<span class="attr">random</span>:<span class="number">1</span>,<span class="attr">repeat</span>:<span class="number">5e5</span>,<span class="attr">onReport</span>:<span class="keyword">function</span>(<span class="params">e,t</span>)&#123;&#125;,<span class="attr">ext</span>:&#123;&#125;&#125;);<span class="keyword">var</span> i=<span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">host</span>,a=top===<span class="variable language_">window</span>,u=!(<span class="regexp">/localhost/i</span>.<span class="title function_">test</span>(i)||<span class="regexp">/127.0.0.1/i</span>.<span class="title function_">test</span>(i)||<span class="regexp">/0.0.0.0/i</span>.<span class="title function_">test</span>(i));a&amp;&amp;u&amp;&amp;<span class="variable constant_">BJ_REPORT</span>.<span class="title function_">report</span>(<span class="string">&quot;yilia-&quot;</span>+<span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">host</span>);<span class="keyword">var</span> l=<span class="title function_">o</span>(<span class="string">&quot;f&quot;</span>),c=<span class="string">&quot;yilia-from&quot;</span>;l?(a&amp;&amp;<span class="variable constant_">BJ_REPORT</span>.<span class="title function_">report</span>(<span class="string">&quot;from-&quot;</span>+l),r.<span class="title function_">set</span>(c,l)):<span class="variable language_">document</span>.<span class="property">referrer</span>.<span class="title function_">indexOf</span>(<span class="variable language_">window</span>.<span class="property">location</span>.<span class="property">host</span>)&gt;=<span class="number">0</span>?(l=r.<span class="title function_">get</span>(c),l&amp;&amp;a&amp;&amp;<span class="variable constant_">BJ_REPORT</span>.<span class="title function_">report</span>(<span class="string">&quot;from-&quot;</span>+l)):r.<span class="title function_">remove</span>(c)&#125;e.<span class="property">exports</span>=&#123;<span class="attr">init</span>:<span class="keyword">function</span>(<span class="params"></span>)&#123;&#125;&#125;&#125;,</span><br></pre></td></tr></table></figure>
 
 <p>替换为</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">192</span>:<span class="keyword">function</span>(<span class="params">e,t,n</span>)&#123;&#125;,</span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<h2 id="左侧作者名字（author）和-子标题（subtitle）的显示"><a href="#左侧作者名字（author）和-子标题（subtitle）的显示" class="headerlink" title="左侧作者名字（author）和 子标题（subtitle）的显示"></a>左侧作者名字（author）和 子标题（subtitle）的显示</h2><p><img src="/assets/img/article/author_subtitle.png" alt="author-subtitle.png"></p>
+<p>这个配置文件中没有介绍到，很简单，在 <code>themes/yilia/_config.yml</code> 中加入一下两项即可：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 作者</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">&#x27;YJ.Liu&#x27;</span></span><br><span class="line"><span class="comment"># 子标题</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&#x27;个人博客&#x27;</span></span><br></pre></td></tr></table></figure>
 
       
 
@@ -441,6 +449,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">shortcut</a>
               </li>
              
               <li class="article-tag-list-item">
