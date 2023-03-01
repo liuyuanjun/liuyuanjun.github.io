@@ -83,9 +83,10 @@ function init() {
 	    		return str !== ''
 	    	},
 	    	urlformat: (str) => {
-				if (window.yiliaConfig && window.yiliaConfig.root) {
-					return window.yiliaConfig.root + str
-				}
+          str = str.replace(/^\/+/,'')
+          if (window.yiliaConfig && window.yiliaConfig.root) {
+            return window.yiliaConfig.root + str
+          }
 	    		return '/' + str
 	    	},
 	    	tagformat: (str) => {

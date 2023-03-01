@@ -2,7 +2,6 @@
 title: Hello World
 date: 2023-02-24 19:11:35
 tags: ["随笔"]
-permalink: '/hello-world/'
 ---
 
 年龄渐长，记忆衰退

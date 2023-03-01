@@ -2,7 +2,7 @@
 title: Mac常用快捷键及命令备忘
 date: 2023-03-01 12:42:47
 updated: 2023-03-01 12:56:14
-permalink: '/mac-shortcut-memo/'
+permalink: 'my-mac-shortcut-memo/'
 tags: ['shortcut']
 ---
 ## 个人常用快捷键备忘，只记录Mac

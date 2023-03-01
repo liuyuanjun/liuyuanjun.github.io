@@ -2,7 +2,6 @@
 title: Hexo使用备忘
 date: 2023-02-27 15:51:19
 updated: 2023-02-27 15:51:19
-permalink: '/hexo-memo/'
 tags: ['Hexo']
 ---
 ## 去除yilia主题中失效的统计访问
@@ -38,4 +37,41 @@ tags: ['Hexo']
 author: 'YJ.Liu'
 # 子标题
 subtitle: '个人博客'
+```
+
+---
+---
+
+## yilia主题bug，Front-matter中设置permalink『所有文章』列表的文章链接错误
+
+原因就是Front-matter中设置 `permalink` 后，`content.json` 返回的数据中 `path` 比没有设置的左边多了个 `/`
+
+### 解决方法
+
+源文件位置 `themes/yilia/source-src/js/slider.js`，代码修改如下，修改位置见注释
+
+```javascript
+urlformat: (str) => {
+    str = str.replace(/^\/+/,'') // <= 增加了这一行
+    if (window.yiliaConfig && window.yiliaConfig.root) {
+        return window.yiliaConfig.root + str
+    }
+    return '/' + str
+}
+```
+
+**同样的，这里是原始文件，修改这里是无法生效的，所以需要在编译文件中替换如下：**
+
+文件位置：`themes/yilia/source/slider.e37972.js`
+
+查找
+
+```javascript
+urlformat:function(t){return window.yiliaConfig&&window.yiliaConfig.root?window.yiliaConfig.root+t:"/"+t}
+```
+
+替换为
+
+```javascript
+urlformat:function(t){t=t.replace(/^\/+/,'');return window.yiliaConfig&&window.yiliaConfig.root?window.yiliaConfig.root+t:"/"+t}
 ```
