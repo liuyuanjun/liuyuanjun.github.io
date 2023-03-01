@@ -159,12 +159,12 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/mac-shortcut-memo/">Mac常用快捷键及命令备忘</a>
+      <a class="article-title" href="/my-mac-shortcut-memo/">Mac常用快捷键及命令备忘</a>
     </h1>
   
 
         
-        <a href="/mac-shortcut-memo/" class="archive-article-date">
+        <a href="/my-mac-shortcut-memo/" class="archive-article-date">
   	<time datetime="2023-03-01T04:42:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-01</time>
 </a>
         
@@ -204,7 +204,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/mac-shortcut-memo/">展开全文 >></a>
+          <a class="article-more-a" href="/my-mac-shortcut-memo/">展开全文 >></a>
         </p>
       
 
@@ -234,7 +234,7 @@
 
 
   
-    <article id="post-Docker-中-ENTRYPOINT-与-CMD-的执行关系" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-docker-how-to-use-entrypoint-cmd" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -351,7 +351,7 @@
 
 
   
-    <article id="post-Github-kex-exchange-identification-问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-github-connect-error-kex_exchange_identification-time_out" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
@@ -481,6 +481,20 @@
 <h2 id="yilia主题左侧作者名字（author）和-子标题（subtitle）的显示"><a href="#yilia主题左侧作者名字（author）和-子标题（subtitle）的显示" class="headerlink" title="yilia主题左侧作者名字（author）和 子标题（subtitle）的显示"></a>yilia主题左侧作者名字（author）和 子标题（subtitle）的显示</h2><p><img src="/assets/img/article/author_subtitle.png" alt="author-subtitle.png"></p>
 <p>这个配置文件中没有介绍到，很简单，在 <code>themes/yilia/_config.yml</code> 中加入一下两项即可：</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 作者</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">&#x27;YJ.Liu&#x27;</span></span><br><span class="line"><span class="comment"># 子标题</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&#x27;个人博客&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<hr>
+<h2 id="yilia主题bug，Front-matter中设置permalink『所有文章』列表的文章链接错误"><a href="#yilia主题bug，Front-matter中设置permalink『所有文章』列表的文章链接错误" class="headerlink" title="yilia主题bug，Front-matter中设置permalink『所有文章』列表的文章链接错误"></a>yilia主题bug，Front-matter中设置permalink『所有文章』列表的文章链接错误</h2><p>原因就是Front-matter中设置 <code>permalink</code> 后，<code>content.json</code> 返回的数据中 <code>path</code> 比没有设置的左边多了个 <code>/</code></p>
+<h3 id="解决方法-1"><a href="#解决方法-1" class="headerlink" title="解决方法"></a>解决方法</h3><p>源文件位置 <code>themes/yilia/source-src/js/slider.js</code>，代码修改如下，修改位置见注释</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">urlformat</span>: <span class="function">(<span class="params">str</span>) =&gt;</span> &#123;</span><br><span class="line">    str = str.<span class="title function_">replace</span>(<span class="regexp">/^\/+/</span>,<span class="string">&#x27;&#x27;</span>) <span class="comment">// &lt;= 增加了这一行</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="variable language_">window</span>.<span class="property">yiliaConfig</span> &amp;&amp; <span class="variable language_">window</span>.<span class="property">yiliaConfig</span>.<span class="property">root</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="variable language_">window</span>.<span class="property">yiliaConfig</span>.<span class="property">root</span> + str</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;/&#x27;</span> + str</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>同样的，这里是原始文件，修改这里是无法生效的，所以需要在编译文件中替换如下：</strong></p>
+<p>文件位置：<code>themes/yilia/source/slider.e37972.js</code></p>
+<p>查找</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">urlformat</span>:<span class="keyword">function</span>(<span class="params">t</span>)&#123;<span class="keyword">return</span> <span class="variable language_">window</span>.<span class="property">yiliaConfig</span>&amp;&amp;<span class="variable language_">window</span>.<span class="property">yiliaConfig</span>.<span class="property">root</span>?<span class="variable language_">window</span>.<span class="property">yiliaConfig</span>.<span class="property">root</span>+<span class="attr">t</span>:<span class="string">&quot;/&quot;</span>+t&#125;</span><br></pre></td></tr></table></figure>
+
+<p>替换为</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">urlformat</span>:<span class="keyword">function</span>(<span class="params">t</span>)&#123;t=t.<span class="title function_">replace</span>(<span class="regexp">/^\/+/</span>,<span class="string">&#x27;&#x27;</span>);<span class="keyword">return</span> <span class="variable language_">window</span>.<span class="property">yiliaConfig</span>&amp;&amp;<span class="variable language_">window</span>.<span class="property">yiliaConfig</span>.<span class="property">root</span>?<span class="variable language_">window</span>.<span class="property">yiliaConfig</span>.<span class="property">root</span>+<span class="attr">t</span>:<span class="string">&quot;/&quot;</span>+t&#125;</span><br></pre></td></tr></table></figure>
 
       
 
@@ -702,27 +716,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">docker</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">github</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
-              </li>
-             
+            
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">shortcut</a>
               </li>
-             
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">docker</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">github</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">ssh</a>
+              </li>
+            
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
-             
+            
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
@@ -792,8 +806,9 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     	</section>
     
   </div>
-  
+
 </div>
+
     <!-- Root element of PhotoSwipe. Must have class pswp. -->
 <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
 
