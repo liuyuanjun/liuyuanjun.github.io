@@ -27,7 +27,7 @@ tags: ['Hexo']
 ---
 ---
 
-## 左侧作者名字（author）和 子标题（subtitle）的显示
+## yilia主题左侧作者名字（author）和 子标题（subtitle）的显示
 
 ![author-subtitle.png](/assets/img/article/author_subtitle.png)
 
