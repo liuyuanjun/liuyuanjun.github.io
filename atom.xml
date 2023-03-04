@@ -150,8 +150,8 @@
   
   <entry>
     <title>Hexo使用备忘</title>
-    <link href="https://liuyuanjun.com/Hexo%E4%BD%BF%E7%94%A8%E5%A4%87%E5%BF%98/"/>
-    <id>https://liuyuanjun.com/Hexo%E4%BD%BF%E7%94%A8%E5%A4%87%E5%BF%98/</id>
+    <link href="https://liuyuanjun.com/hexo-memo/"/>
+    <id>https://liuyuanjun.com/hexo-memo/</id>
     <published>2023-02-27T07:51:19.000Z</published>
     <updated>2023-03-01T08:20:30.000Z</updated>
     
@@ -175,7 +175,7 @@
     <link href="https://liuyuanjun.com/hello-world/"/>
     <id>https://liuyuanjun.com/hello-world/</id>
     <published>2023-02-24T11:11:35.000Z</published>
-    <updated>2023-03-04T11:58:21.394Z</updated>
+    <updated>2023-03-04T11:59:35.051Z</updated>
     
     <content type="html"><![CDATA[<p>年龄渐长，记忆衰退</p><p>构建了一个Blog，记一些东西备忘</p><p>希望我记的东西恰好也能帮到你</p><p>博客构建使用<a href="https://hexo.io/">Hexo</a>，部署于<a href="https://vercel.com/liuyuanjun">Vercel</a>，同时部署于<a href="https://liuyuanjun.github.io/">Github.io</a>备用</p>]]></content>
     
