@@ -2,7 +2,7 @@
 title: Mac常用快捷键及命令备忘
 date: 2023-03-01 12:42:47
 updated: 2023-03-01 12:56:14
-permalink: 'my-mac-shortcut-memo/'
+permalink: '/my-mac-shortcut-memo/'
 tags: ['shortcut']
 ---
 ## 个人常用快捷键备忘，只记录Mac
@@ -22,3 +22,5 @@ tags: ['shortcut']
 
 > Cmd+[   OR  Command+Alt+←  光标回到上一个位置
 > Ctrl+G 选择下一个一样的
+
+### Docker 命令

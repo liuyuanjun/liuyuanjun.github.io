@@ -1,15 +1,17 @@
 ---
 title: Hexo使用备忘
 date: 2023-02-27 15:51:19
-updated: 2023-02-27 15:51:19
+updated: 2023-03-01 16:20:30
 tags: ['Hexo']
 ---
 ## 去除yilia主题中失效的统计访问
 
 使用yilia主题打开网站会有个 `https://litten.me:9005/badjs/?id=1&uin=xxxxxx` 的访问一直转圈，主题作者最后维护已经是N年前，这个统计链接也早已失效
-查找了一下，代码在`/themes/yilia/source-src/js/report.js`，但这里是源码，实际使用的是编译后的文件，所以更改这里并不能解决问题
+查找了一下，代码在`themes/yilia/source-src/js/report.js`，但这里是源码，实际使用的是编译后的文件，所以更改这里并不能解决问题
 
 ### 解决方法
+
+文件：`themes/yilia/source/main.0cf68a.js`
 
 查找
 
@@ -46,9 +48,9 @@ subtitle: '个人博客'
 
 原因就是Front-matter中设置 `permalink` 后，`content.json` 返回的数据中 `path` 比没有设置的左边多了个 `/`
 
-### 解决方法
+### 解决办法
 
-源文件位置 `themes/yilia/source-src/js/slider.js`，代码修改如下，修改位置见注释
+源文件位置 `themes/yilia/source-src/js/slider.js` 85行，代码修改如下，修改位置见注释
 
 ```javascript
 urlformat: (str) => {
@@ -75,3 +77,6 @@ urlformat:function(t){return window.yiliaConfig&&window.yiliaConfig.root?window.
 ```javascript
 urlformat:function(t){t=t.replace(/^\/+/,'');return window.yiliaConfig&&window.yiliaConfig.root?window.yiliaConfig.root+t:"/"+t}
 ```
+
+---
+---
