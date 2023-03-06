@@ -1,7 +1,7 @@
 ---
 title: Cloudflare折腾备忘
 date: 2023-03-04 19:24:00
-updated: 2023-03-06 10:08:16
+updated: 2023-03-06 11:30:54
 permalink: '/cloudflare-memo/'
 tags: ['cloudflare','内网穿透','CDN','Tunnel','Workers']
 ---
@@ -34,3 +34,7 @@ tags: ['cloudflare','内网穿透','CDN','Tunnel','Workers']
 附上步骤链接：<https://zhuanlan.zhihu.com/p/591320825>
 教程是群晖的，我直接用的docker-compose，大同小异自己理解下即可
 还有一个差别就是cloudflare 的 Tunnel 入口有所改变，面板独立到这里<https://one.dash.cloudflare.com/>了，但操作不影响
+
+**注意点：**
+
+- 如果服务器内是用 nginx 的 server_name 区分服务，记得在nginx的配置里加入相应域名
