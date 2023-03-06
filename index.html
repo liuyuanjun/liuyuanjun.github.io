@@ -205,6 +205,10 @@
 <li>cloudflare的worker不支持访问cloudflare的CDN服务</li>
 </ol>
 <h4 id="2-2-使用cloudflare的Tunnel-推荐"><a href="#2-2-使用cloudflare的Tunnel-推荐" class="headerlink" title="2.2 使用cloudflare的Tunnel  (推荐)"></a>2.2 使用cloudflare的Tunnel  (推荐)</h4><p>没想到这个Tunnel居然非常顺利，而且速度感觉也比CDN快。<br>附上步骤链接：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/591320825">https://zhuanlan.zhihu.com/p/591320825</a><br>教程是群晖的，我直接用的docker-compose，大同小异自己理解下即可<br>还有一个差别就是cloudflare 的 Tunnel 入口有所改变，面板独立到这里<a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/">https://one.dash.cloudflare.com/</a>了，但操作不影响</p>
+<p><strong>注意点：</strong></p>
+<ul>
+<li>如果服务器内是用 nginx 的 server_name 区分服务，记得在nginx的配置里加入相应域名</li>
+</ul>
 
       
 
