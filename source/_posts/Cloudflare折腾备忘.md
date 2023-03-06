@@ -1,7 +1,7 @@
 ---
 title: Cloudflare折腾备忘
 date: 2023-03-04 19:24:00
-updated: 2023-03-04 19:24:00
+updated: 2023-03-06 10:08:16
 permalink: '/cloudflare-memo/'
 tags: ['cloudflare','内网穿透']
 ---
@@ -28,6 +28,9 @@ tags: ['cloudflare','内网穿透']
 1. cloudflare的worker不支持访问IPv6
 2. cloudflare的worker不支持访问cloudflare的CDN服务
 
-#### 2.2 尝试使用cloudflare的Tunnel
+#### 2.2 使用cloudflare的Tunnel  (推荐)
 
-未完待续...
+没想到这个Tunnel居然非常顺利，而且速度感觉也比CDN快。
+附上步骤链接：<https://zhuanlan.zhihu.com/p/591320825>
+教程是群晖的，我直接用的docker-compose，大同小异自己理解下即可
+还有一个差别就是cloudflare 的 Tunnel 入口有所改变，面板独立到这里<https://one.dash.cloudflare.com/>了，但操作不影响
