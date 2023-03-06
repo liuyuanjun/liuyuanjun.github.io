@@ -3,7 +3,7 @@ title: Cloudflare折腾备忘
 date: 2023-03-04 19:24:00
 updated: 2023-03-06 10:08:16
 permalink: '/cloudflare-memo/'
-tags: ['cloudflare','内网穿透']
+tags: ['cloudflare','内网穿透','CDN','Tunnel','Workers']
 ---
 ## 用cloudflare尝试穿透中国移动宽带内网搭建外网可访问服务折腾记录
 
