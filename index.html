@@ -152,6 +152,85 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Nginx备忘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/nginx-memo/">Nginx备忘</a>
+    </h1>
+  
+
+        
+        <a href="/nginx-memo/" class="archive-article-date">
+  	<time datetime="2023-03-09T01:38:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-03-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="Nginx-使用注意事项"><a href="#Nginx-使用注意事项" class="headerlink" title="Nginx 使用注意事项"></a>Nginx 使用注意事项</h3><ul>
+<li>Nginx 中有个配置 <code>underscores_in_headers on|off;</code> 用于允许 header 中出现下划线，这个配置默认是<code>off</code>，所以如果 header 中出现下划线，默认情况下是会丢失的，使用中如非必要，header 中不要出现下划线，否则会丢失。实在需要下划线的话要记得改这项配置。</li>
+</ul>
+<blockquote>
+<p>相关文档：<a target="_blank" rel="noopener" href="http://nginx.org/en/docs/http/ngx_http_core_module.html#underscores_in_headers">http://nginx.org/en/docs/http/ngx_http_core_module.html#underscores_in_headers</a></p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Nginx</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/nginx-memo/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Cloudflare折腾备忘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -888,6 +967,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">shortcut</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
               </li>
             
               <li class="article-tag-list-item">

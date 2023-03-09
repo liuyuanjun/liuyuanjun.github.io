@@ -6,7 +6,7 @@
   <link href="https://liuyuanjun.com/atom.xml" rel="self"/>
   
   <link href="https://liuyuanjun.com/"/>
-  <updated>2023-03-06T03:30:54.000Z</updated>
+  <updated>2023-03-09T01:39:33.000Z</updated>
   <id>https://liuyuanjun.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Nginx备忘</title>
+    <link href="https://liuyuanjun.com/nginx-memo/"/>
+    <id>https://liuyuanjun.com/nginx-memo/</id>
+    <published>2023-03-09T01:38:10.000Z</published>
+    <updated>2023-03-09T01:39:33.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Nginx-使用注意事项"><a href="#Nginx-使用注意事项" class="headerlink" title="Nginx 使用注意事项"></a>Nginx 使用注意事项</h3><ul><li>Nginx 中有个配置 <code>underscores_in_headers on|off;</code> 用于允许 header 中出现下划线，这个配置默认是<code>off</code>，所以如果 header 中出现下划线，默认情况下是会丢失的，使用中如非必要，header 中不要出现下划线，否则会丢失。实在需要下划线的话要记得改这项配置。</li></ul><blockquote><p>相关文档：<a href="http://nginx.org/en/docs/http/ngx_http_core_module.html#underscores_in_headers">http://nginx.org/en/docs/http/ngx_http_core_module.html#underscores_in_headers</a></p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;Nginx-使用注意事项&quot;&gt;&lt;a href=&quot;#Nginx-使用注意事项&quot; class=&quot;headerlink&quot; title=&quot;Nginx 使用注意事项&quot;&gt;&lt;/a&gt;Nginx 使用注意事项&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;Nginx 中有个配置 &lt;code&gt;unders</summary>
+      
+    
+    
+    
+    
+    <category term="Nginx" scheme="https://liuyuanjun.com/tags/Nginx/"/>
+    
+  </entry>
   
   <entry>
     <title>Cloudflare折腾备忘</title>
@@ -181,7 +204,7 @@
     <link href="https://liuyuanjun.com/hello-world/"/>
     <id>https://liuyuanjun.com/hello-world/</id>
     <published>2023-02-24T11:11:35.000Z</published>
-    <updated>2023-03-09T01:49:41.959Z</updated>
+    <updated>2023-03-09T01:50:09.955Z</updated>
     
     <content type="html"><![CDATA[<p>年龄渐长，记忆衰退</p><p>构建了一个Blog，记一些东西备忘</p><p>希望我记的东西恰好也能帮到你</p><p>博客构建使用<a href="https://hexo.io/">Hexo</a>，部署于<a href="https://vercel.com/liuyuanjun">Vercel</a>，同时部署于<a href="https://liuyuanjun.github.io/">Github.io</a>备用</p>]]></content>
     
