@@ -6,7 +6,7 @@
   <link href="https://liuyuanjun.com/atom.xml" rel="self"/>
   
   <link href="https://liuyuanjun.com/"/>
-  <updated>2023-03-09T01:39:33.000Z</updated>
+  <updated>2023-03-17T04:03:35.000Z</updated>
   <id>https://liuyuanjun.com/</id>
   
   <author>
@@ -17,13 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>YII2使用备忘</title>
+    <link href="https://liuyuanjun.com/yii2-memo/"/>
+    <id>https://liuyuanjun.com/yii2-memo/</id>
+    <published>2023-03-17T04:03:10.000Z</published>
+    <updated>2023-03-17T04:03:35.000Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Yii2-踩坑记录"><a href="#Yii2-踩坑记录" class="headerlink" title="Yii2 踩坑记录"></a>Yii2 踩坑记录</h3><h4 id="问题：Yii2-Model中的-findOne-和-findAll方法，当传入条件类似于-39-AND-39-39-id-39-gt-1-39-gt-39-39-num-39-3-这样时，会导致结果与预期不符，且不会报错"><a href="#问题：Yii2-Model中的-findOne-和-findAll方法，当传入条件类似于-39-AND-39-39-id-39-gt-1-39-gt-39-39-num-39-3-这样时，会导致结果与预期不符，且不会报错" class="headerlink" title="问题：Yii2 Model中的 findOne 和 findAll方法，当传入条件类似于 [&#39;AND&#39;, [&#39;id&#39; =&gt; 1], [&#39;&gt;&#39;, &#39;num&#39;, 3]] 这样时，会导致结果与预期不符，且不会报错"></a>问题：Yii2 Model中的 <code>findOne</code> 和 <code>findAll</code>方法，当传入条件类似于 <code>[&#39;AND&#39;, [&#39;id&#39; =&gt; 1], [&#39;&gt;&#39;, &#39;num&#39;, 3]]</code> 这样时，会导致结果与预期不符，且不会报错</h4><p>查找原因，这两个方法的 <code>$condition</code> 参数不可以与 <code>where</code> 方法的 <code>$condition</code> 视为等同，因为中间做了一层处理，代码如下：</p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (!<span class="title class_">ArrayHelper</span>::<span class="title function_ invoke__">isAssociative</span>(<span class="variable">$condition</span>) &amp;&amp; !<span class="variable">$condition</span> <span class="keyword">instanceof</span> ExpressionInterface) &#123;</span><br><span class="line">    <span class="comment">// query by primary key</span></span><br><span class="line">    <span class="variable">$primaryKey</span> = <span class="built_in">static</span>::<span class="title function_ invoke__">primaryKey</span>();</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">isset</span>(<span class="variable">$primaryKey</span>[<span class="number">0</span>])) &#123;</span><br><span class="line">        <span class="comment">// if condition is scalar, search for a single primary key, if it is array, search for multiple primary key values</span></span><br><span class="line">        <span class="variable">$condition</span> = [<span class="variable">$primaryKey</span>[<span class="number">0</span>] =&gt; <span class="title function_ invoke__">is_array</span>(<span class="variable">$condition</span>) ? <span class="title function_ invoke__">array_values</span>(<span class="variable">$condition</span>) : <span class="variable">$condition</span>];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">InvalidConfigException</span>(<span class="string">&#x27;&quot;&#x27;</span> . <span class="title function_ invoke__">get_called_class</span>() . <span class="string">&#x27;&quot; must have a primary key.&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>其中 <code>ArrayHelper::isAssociative($condition)</code> 这句就是判断 <code>$condition</code> 是否是关联数组(associative array，相当于其它语言中的Map)，如果不是关联数组，会再做处理，问题就出在这里。<br>由于条件中的 <code>AND</code> 是没有String Key的，<code>ArrayHelper::isAssociative</code> 判断为 <code>false</code>，所以会把条件处理成 <code>[&#39;id&#39; =&gt; [&#39;AND&#39;, [&#39;id&#39; =&gt; 1], [&#39;&gt;&#39;, &#39;num&#39;, 3]]]</code> ，最终导致结果与预期不符。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;Yii2-踩坑记录&quot;&gt;&lt;a href=&quot;#Yii2-踩坑记录&quot; class=&quot;headerlink&quot; title=&quot;Yii2 踩坑记录&quot;&gt;&lt;/a&gt;Yii2 踩坑记录&lt;/h3&gt;&lt;h4 id=&quot;问题：Yii2-Model中的-findOne-和-findAll方法，当</summary>
+      
+    
+    
+    
+    
+    <category term="Yii2" scheme="https://liuyuanjun.com/tags/Yii2/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Nginx备忘</title>
     <link href="https://liuyuanjun.com/nginx-memo/"/>
     <id>https://liuyuanjun.com/nginx-memo/</id>
     <published>2023-03-09T01:38:10.000Z</published>
     <updated>2023-03-09T01:39:33.000Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="Nginx-使用注意事项"><a href="#Nginx-使用注意事项" class="headerlink" title="Nginx 使用注意事项"></a>Nginx 使用注意事项</h3><ul><li>Nginx 中有个配置 <code>underscores_in_headers on|off;</code> 用于允许 header 中出现下划线，这个配置默认是<code>off</code>，所以如果 header 中出现下划线，默认情况下是会丢失的，使用中如非必要，header 中不要出现下划线，否则会丢失。实在需要下划线的话要记得改这项配置。</li></ul><blockquote><p>相关文档：<a href="http://nginx.org/en/docs/http/ngx_http_core_module.html#underscores_in_headers">http://nginx.org/en/docs/http/ngx_http_core_module.html#underscores_in_headers</a></p></blockquote>]]></content>
+    <content type="html"><![CDATA[<h3 id="Nginx-使用注意事项"><a href="#Nginx-使用注意事项" class="headerlink" title="Nginx 使用注意事项"></a>Nginx 使用注意事项</h3><ul><li>Nginx 中有个配置 <code>underscores_in_headers on|off;</code> 用于允许 header 中出现下划线，这个配置默认是<code>off</code>，所以如果 header 中出现下划线，默认情况下是会丢失的，<font color="red">使用中如非必要，header 中不要出现下划线，否则会丢失。</font>实在需要下划线的话要记得改这项配置。</li></ul><blockquote><p>相关文档：<a href="http://nginx.org/en/docs/http/ngx_http_core_module.html#underscores_in_headers">http://nginx.org/en/docs/http/ngx_http_core_module.html#underscores_in_headers</a></p></blockquote>]]></content>
     
     
       
@@ -204,7 +226,7 @@
     <link href="https://liuyuanjun.com/hello-world/"/>
     <id>https://liuyuanjun.com/hello-world/</id>
     <published>2023-02-24T11:11:35.000Z</published>
-    <updated>2023-03-09T01:50:09.955Z</updated>
+    <updated>2023-03-17T05:15:13.809Z</updated>
     
     <content type="html"><![CDATA[<p>年龄渐长，记忆衰退</p><p>构建了一个Blog，记一些东西备忘</p><p>希望我记的东西恰好也能帮到你</p><p>博客构建使用<a href="https://hexo.io/">Hexo</a>，部署于<a href="https://vercel.com/liuyuanjun">Vercel</a>，同时部署于<a href="https://liuyuanjun.github.io/">Github.io</a>备用</p>]]></content>
     
