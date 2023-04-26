@@ -6,14 +6,14 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://liuyuanjun.com">
-  <title>Cloudflare的WARP使用总结 | YJ&#39;s Blog</title>
+  <title>Cloudflare的WARP使用总结备忘 | YJ&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Cloudflare的WARP使用备忘Cloudflare 的 WARP 可以做什么就不赘述了，这里记录下使用过程中的一些问题。 1. 流量的获取流量的获取有3种方法  通过这个TG机器人获取 https:&#x2F;&#x2F;t.me&#x2F;generatewarpplusbot，按照这个机器人的提示操作即可，拿到Key后到WARP里换上，有24PB流量，几乎等于无限了。 使用 Zero Trust 的Team， 开通">
+  <meta name="description" content="Cloudflare WARP 可以做什么就不赘述了，这里记录下使用过程中的一些问题。 1. 流量的获取流量的获取有3种方法  通过这个 TG机器人 获取，按照这个机器人的提示操作即可，拿到Key后到WARP里换上，有24PB流量，几乎等于无限了。 使用 Zero Trust， 开通Zero Trust，免费方案就可以，设置好团队域名，进入 My Team 设置邮箱后缀，然后在WARP里面登录账号">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cloudflare的WARP使用总结">
+<meta property="og:title" content="Cloudflare的WARP使用总结备忘">
 <meta property="og:url" content="https://liuyuanjun.com/cloudflare-warp/index.html">
 <meta property="og:site_name" content="YJ&#39;s Blog">
-<meta property="og:description" content="Cloudflare的WARP使用备忘Cloudflare 的 WARP 可以做什么就不赘述了，这里记录下使用过程中的一些问题。 1. 流量的获取流量的获取有3种方法  通过这个TG机器人获取 https:&#x2F;&#x2F;t.me&#x2F;generatewarpplusbot，按照这个机器人的提示操作即可，拿到Key后到WARP里换上，有24PB流量，几乎等于无限了。 使用 Zero Trust 的Team， 开通">
+<meta property="og:description" content="Cloudflare WARP 可以做什么就不赘述了，这里记录下使用过程中的一些问题。 1. 流量的获取流量的获取有3种方法  通过这个 TG机器人 获取，按照这个机器人的提示操作即可，拿到Key后到WARP里换上，有24PB流量，几乎等于无限了。 使用 Zero Trust， 开通Zero Trust，免费方案就可以，设置好团队域名，进入 My Team 设置邮箱后缀，然后在WARP里面登录账号">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-26T05:26:21.000Z">
 <meta property="article:modified_time" content="2023-04-26T05:28:56.000Z">
@@ -163,7 +163,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Cloudflare的WARP使用总结
+      Cloudflare的WARP使用总结备忘
     </h1>
   
 
@@ -176,11 +176,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Cloudflare的WARP使用备忘"><a href="#Cloudflare的WARP使用备忘" class="headerlink" title="Cloudflare的WARP使用备忘"></a>Cloudflare的WARP使用备忘</h2><p>Cloudflare 的 WARP 可以做什么就不赘述了，这里记录下使用过程中的一些问题。</p>
+        <p><a target="_blank" rel="noopener" href="https://1.1.1.1/">Cloudflare WARP</a> 可以做什么就不赘述了，这里记录下使用过程中的一些问题。</p>
 <h3 id="1-流量的获取"><a href="#1-流量的获取" class="headerlink" title="1. 流量的获取"></a>1. 流量的获取</h3><p>流量的获取有3种方法</p>
 <ol>
-<li>通过这个TG机器人获取 <a target="_blank" rel="noopener" href="https://t.me/generatewarpplusbot">https://t.me/generatewarpplusbot</a>，按照这个机器人的提示操作即可，拿到Key后到WARP里换上，有24PB流量，几乎等于无限了。</li>
-<li>使用 <a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/">Zero Trust</a> 的Team， 开通Zero Trust，免费方案就可以，设置好团队域名，进入 My Team 设置邮箱后缀，然后在WARP里面登录账号即可。<br>一个团队可以免费50个成员，流量无限。<br>附：团队域名修改 <code>/settings/general</code>; 邮箱后缀修改 <code>/settings/devices/edit</code>;</li>
+<li>通过这个 <a target="_blank" rel="noopener" href="https://t.me/generatewarpplusbot">TG机器人</a> 获取，按照这个机器人的提示操作即可，拿到Key后到WARP里换上，有24PB流量，几乎等于无限了。</li>
+<li>使用 <a target="_blank" rel="noopener" href="https://one.dash.cloudflare.com/">Zero Trust</a>， 开通Zero Trust，免费方案就可以，设置好团队域名，进入 My Team 设置邮箱后缀，然后在WARP里面登录账号即可。<br>一个团队可以免费50个成员，流量无限。<br>附：团队域名修改 <code>/settings/general</code>; 邮箱后缀修改 <code>/settings/devices/edit</code>;</li>
 <li>用分享的方式来获得，这个量少且费劲。</li>
 </ol>
 <h3 id="2-客户端的使用"><a href="#2-客户端的使用" class="headerlink" title="2. 客户端的使用"></a>2. 客户端的使用</h3><p>WARP有安卓、IOS、Windows、MacOS、Linux、等客户端，目前试过 MacOS、IOS、安卓，前两者非常简单，直接设置使用即可，安卓麻烦点。</p>
