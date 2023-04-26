@@ -1,20 +1,19 @@
 ---
-title: Cloudflare的WARP使用总结
+title: Cloudflare的WARP使用总结备忘
 date: 2023-04-26 13:26:21
 updated: 2023-04-26 13:28:56
 permalink: '/cloudflare-warp/'
 tags: ['cloudflare','WARP']
 ---
-## Cloudflare的WARP使用备忘
 
-Cloudflare 的 WARP 可以做什么就不赘述了，这里记录下使用过程中的一些问题。
+[Cloudflare WARP](https://1.1.1.1/) 可以做什么就不赘述了，这里记录下使用过程中的一些问题。
 
 ### 1. 流量的获取
 
 流量的获取有3种方法
 
-1. 通过这个TG机器人获取 <https://t.me/generatewarpplusbot>，按照这个机器人的提示操作即可，拿到Key后到WARP里换上，有24PB流量，几乎等于无限了。
-2. 使用 [Zero Trust](https://one.dash.cloudflare.com/) 的Team， 开通Zero Trust，免费方案就可以，设置好团队域名，进入 My Team 设置邮箱后缀，然后在WARP里面登录账号即可。
+1. 通过这个 [TG机器人](https://t.me/generatewarpplusbot) 获取，按照这个机器人的提示操作即可，拿到Key后到WARP里换上，有24PB流量，几乎等于无限了。
+2. 使用 [Zero Trust](https://one.dash.cloudflare.com/)， 开通Zero Trust，免费方案就可以，设置好团队域名，进入 My Team 设置邮箱后缀，然后在WARP里面登录账号即可。
    一个团队可以免费50个成员，流量无限。
    附：团队域名修改 `/settings/general`; 邮箱后缀修改 `/settings/devices/edit`;
 3. 用分享的方式来获得，这个量少且费劲。
