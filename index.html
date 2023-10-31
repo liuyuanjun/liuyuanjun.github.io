@@ -152,6 +152,90 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-QNAP威联通网络莫名断开备忘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/qnap-network-memo/">QNAP威联通网络莫名断开备忘</a>
+    </h1>
+  
+
+        
+        <a href="/qnap-network-memo/" class="archive-article-date">
+  	<time datetime="2023-10-31T02:51:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-10-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>突然发现通过cf的tunnel访问的威联通nas无法访问了，通过ssh登录nas发现网络断开，ping不通外网，但是内网可以ping通。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>上网随便查了下，手动添加了网关，问题解决。<br>不知道重启后会不会有问题，暂时记录下。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">cloudflared  | 2023-10-31T02:27:43Z INF Retrying connection <span class="keyword">in</span> up to 1m4s connIndex=0 event=0 ip=198.41.192.67</span><br><span class="line"><span class="comment"># ping 198.41.200.63</span></span><br><span class="line">PING 198.41.200.63 (198.41.200.63): 56 data bytes</span><br><span class="line">ping: sendto: Network is unreachable</span><br><span class="line"><span class="comment"># ping baidu.com</span></span><br><span class="line">PING baidu.com (39.156.66.10): 56 data bytes</span><br><span class="line">ping: sendto: Network is unreachable</span><br><span class="line"><span class="comment"># ping 192.168.2.1</span></span><br><span class="line">PING 192.168.2.1 (192.168.2.1): 56 data bytes</span><br><span class="line">64 bytes from 192.168.2.1: <span class="built_in">seq</span>=0 ttl=64 time=0.247 ms</span><br><span class="line">64 bytes from 192.168.2.1: <span class="built_in">seq</span>=1 ttl=64 time=0.288 ms</span><br><span class="line"><span class="comment"># route</span></span><br><span class="line">Kernel IP routing table</span><br><span class="line">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface</span><br><span class="line">10.0.3.0        *               255.255.255.0   U     0      0        0 lxcbr0</span><br><span class="line">10.0.5.0        *               255.255.255.0   U     0      0        0 docker0</span><br><span class="line">10.0.7.0        *               255.255.255.0   U     0      0        0 lxdbr0</span><br><span class="line">127.0.0.0       *               255.0.0.0       U     0      0        0 lo</span><br><span class="line">172.29.0.0      *               255.255.252.0   U     0      0        0 br-24716c1a29aa</span><br><span class="line">172.29.4.0      *               255.255.252.0   U     0      0        0 br-c289739b34e0</span><br><span class="line">172.29.8.0      *               255.255.252.0   U     0      0        0 br-3366894659cb</span><br><span class="line">172.29.12.0     *               255.255.252.0   U     0      0        0 br-8ead73783fd8</span><br><span class="line">172.29.16.0     *               255.255.252.0   U     0      0        0 br-98fb6438c86a</span><br><span class="line">172.29.20.0     *               255.255.252.0   U     0      0        0 br-643339fca491</span><br><span class="line">172.29.24.0     *               255.255.252.0   U     0      0        0 br-f4308d77c332</span><br><span class="line">172.29.28.0     *               255.255.252.0   U     0      0        0 br-c4202cae4285</span><br><span class="line">172.29.32.0     *               255.255.252.0   U     0      0        0 br-7926f60bf5c4</span><br><span class="line">172.29.68.0     *               255.255.252.0   U     0      0        0 br-6afa60eff756</span><br><span class="line">172.30.0.0      *               255.255.252.0   U     0      0        0 br-ba18fe12dc39</span><br><span class="line">192.168.2.0     *               255.255.255.0   U     0      0        0 br0</span><br><span class="line"><span class="comment"># route add default gw 192.168.2.1</span></span><br><span class="line"><span class="comment"># route</span></span><br><span class="line">Kernel IP routing table</span><br><span class="line">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface</span><br><span class="line">default         RT-AC86U        0.0.0.0         UG    0      0        0 br0</span><br><span class="line">10.0.3.0        *               255.255.255.0   U     0      0        0 lxcbr0</span><br><span class="line">10.0.5.0        *               255.255.255.0   U     0      0        0 docker0</span><br><span class="line">10.0.7.0        *               255.255.255.0   U     0      0        0 lxdbr0</span><br><span class="line">127.0.0.0       *               255.0.0.0       U     0      0        0 lo</span><br><span class="line">172.29.0.0      *               255.255.252.0   U     0      0        0 br-24716c1a29aa</span><br><span class="line">172.29.4.0      *               255.255.252.0   U     0      0        0 br-c289739b34e0</span><br><span class="line">172.29.8.0      *               255.255.252.0   U     0      0        0 br-3366894659cb</span><br><span class="line">172.29.12.0     *               255.255.252.0   U     0      0        0 br-8ead73783fd8</span><br><span class="line">172.29.16.0     *               255.255.252.0   U     0      0        0 br-98fb6438c86a</span><br><span class="line">172.29.20.0     *               255.255.252.0   U     0      0        0 br-643339fca491</span><br><span class="line">172.29.24.0     *               255.255.252.0   U     0      0        0 br-f4308d77c332</span><br><span class="line">172.29.28.0     *               255.255.252.0   U     0      0        0 br-c4202cae4285</span><br><span class="line">172.29.32.0     *               255.255.252.0   U     0      0        0 br-7926f60bf5c4</span><br><span class="line">172.29.68.0     *               255.255.252.0   U     0      0        0 br-6afa60eff756</span><br><span class="line">172.30.0.0      *               255.255.252.0   U     0      0        0 br-ba18fe12dc39</span><br><span class="line">192.168.2.0     *               255.255.255.0   U     0      0        0 br0</span><br><span class="line"><span class="comment"># ping baidu.com</span></span><br><span class="line">PING baidu.com (39.156.66.10): 56 data bytes</span><br><span class="line">64 bytes from 39.156.66.10: <span class="built_in">seq</span>=0 ttl=52 time=6.765 ms</span><br><span class="line">64 bytes from 39.156.66.10: <span class="built_in">seq</span>=1 ttl=52 time=6.822 ms</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">QNAP</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">威联通</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">网络</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/qnap-network-memo/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-Cloudflare的WARP使用总结" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1142,6 +1226,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">Nginx</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">QNAP</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">威联通</a>
+              </li>
+            
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">网络</a>
               </li>
             
               <li class="article-tag-list-item">

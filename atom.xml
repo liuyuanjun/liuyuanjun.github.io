@@ -6,7 +6,7 @@
   <link href="https://liuyuanjun.com/atom.xml" rel="self"/>
   
   <link href="https://liuyuanjun.com/"/>
-  <updated>2023-04-26T05:28:56.000Z</updated>
+  <updated>2023-10-31T02:51:57.000Z</updated>
   <id>https://liuyuanjun.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>QNAP威联通网络莫名断开备忘</title>
+    <link href="https://liuyuanjun.com/qnap-network-memo/"/>
+    <id>https://liuyuanjun.com/qnap-network-memo/</id>
+    <published>2023-10-31T02:51:57.000Z</published>
+    <updated>2023-10-31T02:51:57.000Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>突然发现通过cf的tunnel访问的威联通nas无法访问了，通过ssh登录nas发现网络断开，ping不通外网，但是内网可以ping通。</p><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>上网随便查了下，手动添加了网关，问题解决。<br>不知道重启后会不会有问题，暂时记录下。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">cloudflared  | 2023-10-31T02:27:43Z INF Retrying connection <span class="keyword">in</span> up to 1m4s connIndex=0 event=0 ip=198.41.192.67</span><br><span class="line"><span class="comment"># ping 198.41.200.63</span></span><br><span class="line">PING 198.41.200.63 (198.41.200.63): 56 data bytes</span><br><span class="line">ping: sendto: Network is unreachable</span><br><span class="line"><span class="comment"># ping baidu.com</span></span><br><span class="line">PING baidu.com (39.156.66.10): 56 data bytes</span><br><span class="line">ping: sendto: Network is unreachable</span><br><span class="line"><span class="comment"># ping 192.168.2.1</span></span><br><span class="line">PING 192.168.2.1 (192.168.2.1): 56 data bytes</span><br><span class="line">64 bytes from 192.168.2.1: <span class="built_in">seq</span>=0 ttl=64 time=0.247 ms</span><br><span class="line">64 bytes from 192.168.2.1: <span class="built_in">seq</span>=1 ttl=64 time=0.288 ms</span><br><span class="line"><span class="comment"># route</span></span><br><span class="line">Kernel IP routing table</span><br><span class="line">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface</span><br><span class="line">10.0.3.0        *               255.255.255.0   U     0      0        0 lxcbr0</span><br><span class="line">10.0.5.0        *               255.255.255.0   U     0      0        0 docker0</span><br><span class="line">10.0.7.0        *               255.255.255.0   U     0      0        0 lxdbr0</span><br><span class="line">127.0.0.0       *               255.0.0.0       U     0      0        0 lo</span><br><span class="line">172.29.0.0      *               255.255.252.0   U     0      0        0 br-24716c1a29aa</span><br><span class="line">172.29.4.0      *               255.255.252.0   U     0      0        0 br-c289739b34e0</span><br><span class="line">172.29.8.0      *               255.255.252.0   U     0      0        0 br-3366894659cb</span><br><span class="line">172.29.12.0     *               255.255.252.0   U     0      0        0 br-8ead73783fd8</span><br><span class="line">172.29.16.0     *               255.255.252.0   U     0      0        0 br-98fb6438c86a</span><br><span class="line">172.29.20.0     *               255.255.252.0   U     0      0        0 br-643339fca491</span><br><span class="line">172.29.24.0     *               255.255.252.0   U     0      0        0 br-f4308d77c332</span><br><span class="line">172.29.28.0     *               255.255.252.0   U     0      0        0 br-c4202cae4285</span><br><span class="line">172.29.32.0     *               255.255.252.0   U     0      0        0 br-7926f60bf5c4</span><br><span class="line">172.29.68.0     *               255.255.252.0   U     0      0        0 br-6afa60eff756</span><br><span class="line">172.30.0.0      *               255.255.252.0   U     0      0        0 br-ba18fe12dc39</span><br><span class="line">192.168.2.0     *               255.255.255.0   U     0      0        0 br0</span><br><span class="line"><span class="comment"># route add default gw 192.168.2.1</span></span><br><span class="line"><span class="comment"># route</span></span><br><span class="line">Kernel IP routing table</span><br><span class="line">Destination     Gateway         Genmask         Flags Metric Ref    Use Iface</span><br><span class="line">default         RT-AC86U        0.0.0.0         UG    0      0        0 br0</span><br><span class="line">10.0.3.0        *               255.255.255.0   U     0      0        0 lxcbr0</span><br><span class="line">10.0.5.0        *               255.255.255.0   U     0      0        0 docker0</span><br><span class="line">10.0.7.0        *               255.255.255.0   U     0      0        0 lxdbr0</span><br><span class="line">127.0.0.0       *               255.0.0.0       U     0      0        0 lo</span><br><span class="line">172.29.0.0      *               255.255.252.0   U     0      0        0 br-24716c1a29aa</span><br><span class="line">172.29.4.0      *               255.255.252.0   U     0      0        0 br-c289739b34e0</span><br><span class="line">172.29.8.0      *               255.255.252.0   U     0      0        0 br-3366894659cb</span><br><span class="line">172.29.12.0     *               255.255.252.0   U     0      0        0 br-8ead73783fd8</span><br><span class="line">172.29.16.0     *               255.255.252.0   U     0      0        0 br-98fb6438c86a</span><br><span class="line">172.29.20.0     *               255.255.252.0   U     0      0        0 br-643339fca491</span><br><span class="line">172.29.24.0     *               255.255.252.0   U     0      0        0 br-f4308d77c332</span><br><span class="line">172.29.28.0     *               255.255.252.0   U     0      0        0 br-c4202cae4285</span><br><span class="line">172.29.32.0     *               255.255.252.0   U     0      0        0 br-7926f60bf5c4</span><br><span class="line">172.29.68.0     *               255.255.252.0   U     0      0        0 br-6afa60eff756</span><br><span class="line">172.30.0.0      *               255.255.252.0   U     0      0        0 br-ba18fe12dc39</span><br><span class="line">192.168.2.0     *               255.255.255.0   U     0      0        0 br0</span><br><span class="line"><span class="comment"># ping baidu.com</span></span><br><span class="line">PING baidu.com (39.156.66.10): 56 data bytes</span><br><span class="line">64 bytes from 39.156.66.10: <span class="built_in">seq</span>=0 ttl=52 time=6.765 ms</span><br><span class="line">64 bytes from 39.156.66.10: <span class="built_in">seq</span>=1 ttl=52 time=6.822 ms</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h2&gt;&lt;p&gt;突然发现通过cf的tunnel访问的威联通nas无法访问了，通过ssh登录nas发现网络断开，ping不通外网，但是内网可以</summary>
+      
+    
+    
+    
+    
+    <category term="QNAP" scheme="https://liuyuanjun.com/tags/QNAP/"/>
+    
+    <category term="威联通" scheme="https://liuyuanjun.com/tags/%E5%A8%81%E8%81%94%E9%80%9A/"/>
+    
+    <category term="网络" scheme="https://liuyuanjun.com/tags/%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
   
   <entry>
     <title>Cloudflare的WARP使用总结备忘</title>
@@ -251,7 +277,7 @@
     <link href="https://liuyuanjun.com/hello-world/"/>
     <id>https://liuyuanjun.com/hello-world/</id>
     <published>2023-02-24T11:11:35.000Z</published>
-    <updated>2023-10-31T03:00:19.228Z</updated>
+    <updated>2023-10-31T03:17:02.441Z</updated>
     
     <content type="html"><![CDATA[<p>年龄渐长，记忆衰退</p><p>构建了一个Blog，记一些东西备忘</p><p>希望我记的东西恰好也能帮到你</p><p>博客构建使用<a href="https://hexo.io/">Hexo</a>，部署于<a href="https://vercel.com/liuyuanjun">Vercel</a>，同时部署于<a href="https://liuyuanjun.github.io/">Github.io</a>备用</p>]]></content>
     
