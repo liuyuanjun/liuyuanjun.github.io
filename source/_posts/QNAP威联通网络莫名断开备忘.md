@@ -12,7 +12,8 @@ tags: ['QNAP','威联通','网络']
 
 ## 解决方法
 
-上网随便查了下，处理记录下来，方便以后查找。
+上网随便查了下，手动添加了网关，问题解决。
+不知道重启后会不会有问题，暂时记录下。
 
 ```bash
 cloudflared  | 2023-10-31T02:27:43Z INF Retrying connection in up to 1m4s connIndex=0 event=0 ip=198.41.192.67
